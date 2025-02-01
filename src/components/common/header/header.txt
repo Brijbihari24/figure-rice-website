@@ -1,0 +1,168 @@
+ <header className={header}>
+        {/*Header-Upper*/}
+        <div className="header-upper">
+          <div className="container-fluid clearfix">
+            <div className="header-inner d-flex align-items-center">
+              <div className="logo-outer">
+                <div className="logo">
+                  <a href="/"><img src="/assets/images/logos/logo.png" alt="Logo" title="Logo" /></a>
+                </div>
+              </div>
+              <div className="nav-outer clearfix">
+                {/* Main Menu */}
+                <nav className="main-menu navbar-expand-lg">
+                  <div className="navbar-header">
+                    {/* Toggle Button */}
+                    <div onClick={() => setMobileNav(!mobileNav)}>
+                      <div
+                        className={
+                          mobilemenu
+                            ? 'responsive-toggle fa fa-close'
+                            : 'responsive-toggle fa fa-bars'
+                        }
+                      />
+                    </div>
+                    {mobileNav ? (
+                      <section>
+                        <div className="mobile-navbar-menu">
+                          <div className="mobile-nav-close-icon">
+                            <i className="far fa-window-close clr-txt mobile-nav-close-icon" onClick={() => setMobileNav(false)} />
+                          </div>
+                          <div className="mobile-logo-text-body">
+                            <div className="mobile-logo-text">
+                              <div className="logo-mobile bg-shadow">
+                                <a href="/"><img src="/assets/images/logos/logo.png" alt="Logo" title="Logo" /></a>
+                              </div>
+                            </div>
+                          </div>
+
+                          <hr />
+                          <div className="mobile-menu-links">
+                            <ul>
+                              <li>
+                                <Link to="/">
+                                  <p>Home</p>
+                                </Link>
+                              </li>
+                              <li
+                                className="dropdown"
+                              >
+                                <a >
+                                  <p onClick={() => setOpenMobileMenu(!openMobileMenu)}>Services</p>
+                                  <div className={openMobileMenu ? "mobile-nav-all-services-show" : "mobile-nav-all-services"}>
+                                    {
+                                      openMobileMenu ? (
+                                        <div>
+                                          {all_collections && all_collections.map((item) => {
+                                            return (
+                                              <div className="dropdownlist">
+                                                <Link to={`/collections/${item.slug}`}>
+                                                  <p>{item.name}</p>
+                                                </Link>
+                                              </div>
+                                            )
+                                          })}
+                                        </div>
+                                      ) : (
+                                        null
+                                      )
+                                    }
+
+                                  </div>
+                                </a>
+                              </li>
+                              <li>
+                                <Link to="/about-us">
+                                  <p>About</p>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="/blogs">
+                                  <p>Blog</p>
+                                </Link>
+                              </li>
+
+                              <li>
+                                <Link to="/contact-us">
+                                  <p>Contact</p>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                          <hr />
+                          <div className="footer-social-media pt-8">
+                            <div style={{ textAlign: "center" }} className="footer-social-media-text">
+                              Social Media:
+                            </div>
+                            <div className="social-style-one pt-40">
+                              <a target='_blank' href={webpages && webpages.facebook_link}><i className="fab fa-facebook-f" /></a>
+                              {
+                                // <a href={webpages && webpages[0] && webpages[0].twitter_link}><i className="fab fa-twitter" /></a>
+                              }
+                              <a target='_blank' href={webpages && webpages.linkedin_link}><i className="fab fa-linkedin-in" /></a>
+                              <a target='_blank' href={webpages && webpages.youtube_link}><i className="fab fa-youtube" /></a>
+                              <a target='_blank' href={webpages && webpages.instagram_link}><i className="fab fa-instagram" /></a>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    ) : (null)}
+                    <div className="mobile-logo p-15 m-auto">
+                      <a href="/">
+                        <img src="/assets/images/logos/logo.png" alt="Logo" title="Logo" />
+                      </a>
+                    </div>
+                  </div>
+                  <div className="navbar-collapse collapse clearfix">
+                    <ul className="navigation clearfix">
+                      <li className>
+                        <Link to="/">Home</Link>
+                      </li>
+
+                      <li className="dropdown"
+                        onMouseEnter={() => setOpenMenu(true)}
+                        onMouseLeave={() => setOpenMenu(false)}
+                        onClick={() => setOpenMenu(!openMenu)}
+                      >
+                        <a href="">Services</a>
+                        <div className={
+                          openMenu
+                            ? "dropdown-menu show dropdown-main-items"
+                            : "dropdown-menu dropdown-main-items"
+                        }>
+                          {all_collections && all_collections.map((item) => {
+                            return (
+                              <div className="dropdownlist">
+                                <Link to={`/collections/${item.slug}`}>
+                                  <p>{item.name}</p>
+                                </Link>
+                              </div>
+                            )
+                          })}
+
+                        </div>
+                      </li>
+                      <li className>
+                        <Link to="/about-us">About Us</Link>
+                      </li>
+                      <li className>
+                        <Link to="/blogs">Blog</Link>
+                      </li>
+                      <li className>
+                        <Link to="/contact-us">Contact</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                {/* Main Menu End*/}
+              </div>
+              {/* Menu Button */}
+              <div className>
+                <a onClick={() => setOpenModel(true)} className="btn btn-book">Book An Appointment</a>
+              </div>
+              <BookAppointmentButton openModel={openModel} setOpenModel={setOpenModel} />
+            </div>
+          </div>
+        </div>
+        {/*End Header Upper*/}
+      </header>
