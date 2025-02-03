@@ -1,11 +1,8 @@
 import React from 'react'
 import { TbTruckDelivery } from "react-icons/tb";
-import { RiMoneyRupeeCircleFill } from "react-icons/ri";
-import { FaMoneyBillWaveAlt } from "react-icons/fa";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { GrStatusGood } from "react-icons/gr";
 import { MdOutlineSavings } from "react-icons/md";
-import { BiSolidOffer } from "react-icons/bi";
 import { MdOutlineLocalOffer } from "react-icons/md";
 
 function Features() {
@@ -48,7 +45,7 @@ function Features() {
                             </div>
                         </div>
                         <div className="col">
-                            <div className="card text-align-cente rmb-3 border-gold p-3">
+                            <div className="card text-align-center rmb-3 border-gold p-3">
                                 <div className="featured-icons text-dark mb-3">
                                     <MdOutlineSavings className="icon" />
                                 </div>

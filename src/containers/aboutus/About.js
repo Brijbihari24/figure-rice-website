@@ -1,135 +1,91 @@
 import React from 'react'
 import Header from '../../components/common/header/Header'
 import Footer from '../../components/common/footer/Footer'
-import Team from '../../components/team/Team'
-import Breadcrum from '../../components/breadcrum/Breadcrum'
-import { useGetWebpage } from '../../shared/hooks/UseWebpage'
-import { URI } from "../../domain/constant";
-import renderHTML from "react-render-html";
-import { useSelectAllService } from "../../shared/hooks/UseService"
-import { Link } from 'react-router-dom'
-import AboutImage from "../../assets/images/blogs-banners.jpg"
-import { Helmet } from 'react-helmet'
+import HomeAbout from '../../components/home_about/HomeAbout'
+import Dillipasand from '../../components/dilli/Dillipasand'
+
 
 function About() {
-  const [webpage_data] = useGetWebpage()
-  const { webpages, loading } = webpage_data;
 
-  console.log("WEBPAGES-", webpages);
 
-  const [service_data] = useSelectAllService();
-  const { all_services, all_services_loading } = service_data;
-
-  console.log("All Services -", all_services);
   return (
     <div>
       <Header />
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>About Us - Rejuve Aesthetics</title>
-        <meta name="description" content="We are Leader in Skin, Medifacial and Dentistry Services. We are determined and dedicated to deliver the most advanced dermatology treatments."
-        />
-      </Helmet>
-      {
-        // <Breadcrum bg_heading={"About Us"} page_title={"About Us"} breadcrumb_image={AboutImage} />
-      }
-      {
-        <section className="page-banner text-white py-165 rpy-130" style={{ backgroundImage: 'url(/assets/images/banner_image.jpg)' }}>
-          <div className="container">
-            <div className="banner-inner text-center">
-              <span className="bg-text">About Us</span>
-              <h1 className="page-title wow fadeInUp delay-0-2s">About Us</h1>
-              {
-                //   <nav aria-label="breadcrumb">
-                //   <ol className="breadcrumb wow fadeInUp delay-0-4s">
-                //     <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                //     <li className="breadcrumb-item active">{title}</li>
-                //   </ol>
-                // </nav>
-              }
+      <section className="about-sec ptb-60">
+        <div className="container">
+          <div className="row align-item-center">
+            <div className="col-md-7">
+              <div className="about-sec-title ">
+                <h1>About Figure Natural Private Limited</h1>
+              </div>
+              <div className="about-sec-content">
+                <div className="about-sec-para">
+                  <p>At <strong>Figure Natural Private Limited</strong>, we are passionate about transforming lives through healthy eating. As a leading rice miller and exporter, we specialize in premium-quality basmati steamed and parboiled rice, with a focus on cholesterol-free, low-GI, and organic rice.</p>
+
+                  <p>Founded in 2022 as the sister company of the renowned <strong>Delhi Pasand Basmati Rice</strong>, Figure Natural continues a legacy built on innovation, research, and a deep commitment to health. Our advanced facility in Sirsa, Haryana, utilizes multi-stage milling and sorting technology and state-of-the-art UK & US-based machinery to ensure that every grain is processed with precision and care.</p>
+
+                  <p>Recently, we have partnered with celebrated actress <strong>Shweta Tiwari</strong> as our brand ambassador. Her vibrant persona and healthy lifestyle resonate perfectly with our brand’s mission to inspire healthier food habits across the nation.</p>
+
+                  <p>At <strong>Figure Natural Private Limited</strong>, we believe in the transformative power of healthy eating and the profound impact it can have on lives. As a prominent rice miller and exporter, we specialize in premium-quality basmati steamed and parboiled rice, including the finest basmati and sella rice varieties. Our commitment to innovation, quality, and health drives us to provide products that not only nourish but also inspire healthier lifestyles across India and beyond.</p>
+
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-5">
+              <div className="about-sec-img">
+                <img src="/assets/images/about-us/1-removebg-preview.png" alt="" />
+              </div>
             </div>
           </div>
-        </section>
-      }
+          <div className="row align-item-center mt-4rem">
+            <div className="col-md-5">
+              <div className="about-sec-img">
+                <img src="/assets/images/about-us/1-removebg-preview.png" alt="" />
+              </div>
+            </div>
+            <div className="col-md-7">
+              <div className="about-sec-content">
+                <div className="about-sec-para">
 
-      <section className="about-page-section rel z-2 pt-140 rpt-90">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="about-page-content wow fadeInLeft delay-0-2s">
-                <div className="section-title mb-30">
-                  <span className="bg-text">about</span>
-                  <span className="sub-title">Who We Are</span>
-                  <h2>Rejuve Aesthetics</h2>
+
+                  <h2>A Legacy of Health and Excellence</h2>
+
+                  <p>Launched as the sister company of the renowned <strong>Delhi Pasand Basmati Rice</strong>, Figure Natural carries forward a legacy rooted in deep research and a passion for wellness. Delhi Pasand has already revolutionized the rice market with its cholesterol-free, low-GI, and organic rice ranges, aiming to make India healthier. This shared vision of promoting healthy eating habits underscores everything we do.</p>
+
+                  <p>Our advanced milling facility, located in Sirsa, Haryana, utilizes multi-stage milling and sorting technology and cutting-edge UK and US-based machines. The rice grains are processed with RO water, ensuring they are pure, clean, and free from harmful substances. Every grain is a testament to our uncompromising focus on quality and nutrition.</p>
+
+
                 </div>
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="about-page-right-text wow fadeInRight delay-0-2s">
-                <p>At Rejuve Aesthetics, we understand that healthy, radiant skin is not just a luxury but a necessity. We are a leading skin &amp; body care clinic that provides comprehensive skin and body care treatments and services that cater to your specific needs and concerns.</p>
+          <div className="row align-item-center mt-4rem">
+            <div className="col-md-7">
+              <div className="about-sec-content">
+                <div className="about-sec-para">
 
-                <p>Our team of highly skilled and experienced aestheticians and skincare professionals are committed to helping you achieve your best skin yet. We use the latest and most advanced techniques and technologies to provide safe, effective, and customized treatments that will enhance your skin's natural beauty.</p>
 
-                <p>Whether you're looking to address signs of aging, such as wrinkles, fine lines, and age spots, or you're dealing with acne, scarring, or other skin concerns, we have the expertise and resources to help you achieve your goals. Our services include skin rejuvenation, acne treatment, laser hair removal, body contouring, and more.</p>
+                  <h2>Commitment to a Healthier India</h2>
 
-                <p>We pride ourselves on providing a personalized experience for clients who walk through our doors. Our team will work closely with you to create a treatment plan that is tailored to your unique needs and goals. We believe everyone deserves to feel confident and beautiful in their skin, and we're here to help you achieve that.</p>
+                  <p>Both <strong>Figure Natural</strong> and <strong>Delhi Pasand</strong> are driven by the mission of building a healthier India. Extensive research and a deep understanding of consumer needs guide our product innovation. From cholesterol-free rice to organic and low-GI options, we are committed to offering rice that caters to specific health requirements, making healthy eating accessible to all.</p>
 
-                <p>At Rejuve Aesthetics, we are committed to using only the highest quality products and equipment in all of our treatments. We prioritize your safety and satisfaction above all else and strive to create a comfortable and welcoming environment where you can relax and enjoy your experience.</p>
+                  <p>Our rice is lab-tested to meet stringent quality standards, ensuring it is free from cholesterol, preservatives, and harmful additives. This dedication to health is further reflected in our efforts to educate consumers about the importance of conscious eating through surveys, campaigns, and other initiatives.</p>
 
-                <p>We invite you to schedule a consultation with us today and see for yourself how our expert team can help you achieve the healthy, vibrant skin you've always wanted.</p>
+
+
+                </div>
+              </div>
+            </div>
+            <div className="col-md-5">
+              <div className="about-sec-img">
+                <img src="/assets/images/about-us/1-removebg-preview.png" alt="" />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Team
-        name={webpages && webpages.doctor_name}
-        image={`${URI}${webpages && webpages.doctor_image}`}
-        job_role={webpages && webpages.doctor_job_role}
-        content={webpages && webpages.doctor_content && renderHTML(webpages.doctor_content)}
-      />
-      <section className="about-page pb-120 pt-110">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-7 col-lg-8 col-md-9">
-              <div className="section-title text-center mb-65">
-                <span className="bg-text">Services</span>
-                <span className="sub-title">Our Services</span>
-                <h2>Popular Services</h2>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            {
-              all_services && all_services.map((item) => {
-                return (
-                  <div className='col-lg-4 col-sm-6' >
-                    <Link to={`/service/${item.slug}`}>
-                      <div className="category-section">
-                        <div className="category-item style-two wow fadeInUp delay-0-2s " style={{ width: "100%" }}>
-                          <img src={`${URI}${item.icon}`} alt="" />
-                          <div className="category-title">
-                            <span className="bg-text">Category</span>
-                            <h4><a href="service-details.html">{item.name}</a></h4>
-                          </div>
-                          <p>{item && renderHTML(item.description.substring(0, 120))}</p>
-                          <a href="service-details.html" className="read-more">read more <i className="fas fa-long-arrow-alt-right" /></a>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                )
-              })
-            }
-          </div>
-        </div>
-
-      </section>
-      {
-        // TODO: Instagram reels here
-      }
+      <Dillipasand />
       <Footer />
     </div>
   )

@@ -19,18 +19,7 @@ const InstagramEmbed = ({ postUrl }) => {
             <section className="instagram mt-3 mb-5">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-4">
-                            <div className="instagram-post">
-                                <blockquote
-                                    className="instagram-media"
-                                    data-instgrm-permalink={postUrl}
-                                    data-instgrm-version="13"
-                                    style={{ background: 'transparent', border: '0', padding: '0', margin: '0' }}
-                                >
-                                    <a href={postUrl}>Instagram Post</a>
-                                </blockquote>
-                            </div>
-                        </div>
+
                         <div className="col-md-4">
                             <div className="instagram-post">
                                 <blockquote
@@ -52,6 +41,18 @@ const InstagramEmbed = ({ postUrl }) => {
                                     style={{ background: 'transparent', border: '0', padding: '0', margin: '0' }}
                                 >
                                     <a href="https://www.instagram.com/p/DECKqcktvBD/?utm_source=ig_embed&amp;utm_campaign=loading">Instagram Post</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="instagram-post">
+                                <blockquote
+                                    className="instagram-media"
+                                    data-instgrm-permalink="https://www.instagram.com/p/DBTHyAVT-dB/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                    data-instgrm-version="13"
+                                    style={{ background: 'transparent', border: '0', padding: '0', margin: '0' }}
+                                >
+                                    <a href="https://www.instagram.com/p/DBTHyAVT-dB/?utm_source=ig_embed&amp;utm_campaign=loading">Instagram Post</a>
                                 </blockquote>
                             </div>
                         </div>

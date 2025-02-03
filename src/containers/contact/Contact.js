@@ -2,95 +2,142 @@ import React from 'react'
 import Header from '../../components/common/header/Header'
 import Footer from '../../components/common/footer/Footer'
 import ContactForm from './ContactForm'
-import Breadcrum from '../../components/breadcrum/Breadcrum'
-import { Link } from 'react-router-dom'
-import { URI } from '../../domain/constant';
-import { useGetWebpage } from '../../shared/hooks/UseWebpage'
-import renderHTML from "react-render-html";
-import { useCreateContact, useSelectAllContact } from "../../shared/hooks/UseContact";
-import { Helmet } from 'react-helmet'
-
+import { Formik, Form } from "formik";
+import { TextArea, TextInput, SelectBox } from "../../components/Form/Form";
+import * as Yup from "yup";
+import Features from '../../components/features/Features';
 
 function Contact() {
-  const [webpage_data] = useGetWebpage()
-  const { webpages, loading } = webpage_data;
+
 
 
   return (
     <div>
       <Header />
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Contact Us -  Rejuve Aesthetics</title>
-        <meta name="description" content="Rejuve Aesthetics is the Best Skin Clinic in Guwahati. Call : +91-80116 11002 or Email at Rejuveaestheticlinic@gmail.com for Skin Treatment in Guwahati."
-        />
-      </Helmet>
-      <section className="page-banner text-white py-165 rpy-130" style={{ backgroundImage: 'url(/assets/images/banner_image.jpg)' }}>
+      <div className="contact-sec ptb-60 bg-offwhite">
         <div className="container">
-          <div className="banner-inner text-center">
-            <span className="bg-text">Contact Us</span>
-            <h1 className="page-title wow fadeInUp delay-0-2s">Contact Us</h1>
-            {
-              //   <nav aria-label="breadcrumb">
-              //   <ol className="breadcrumb wow fadeInUp delay-0-4s">
-              //     <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-              //     <li className="breadcrumb-item active">{title}</li>
-              //   </ol>
-              // </nav>
-            }
+          <div className="row align-item-center">
+            <div className="col-md-6">
+              <div className="contact-form-wrap banner-form-top" style={{ background: "#fff" }}>
+                <div className="section-title mb-45 text-center">
+                  <h1>Contact Us</h1>
+                </div>
+                <Formik
+                  initialValues={{
+                    name: "",
+                    email: "",
+                    phone: "",
+                    message: "",
+                  }}
+                  validationSchema={Yup.object({
+                    name: Yup.string().required("Required"),
+                    email: Yup.string().required("Required"),
+                    phone: Yup.string().required("Required"),
+                    message: Yup.string().required("Required"),
+                  })}
+                  onSubmit={async (values, { setSubmitting, resetForm }) => {
+                    setSubmitting(true);
+                    // addData(values);
+                    // addContact({ values });
+                    resetForm();
+                    setSubmitting(false);
+                  }}
+                >
+                  {(formik) => {
+                    console.log(formik);
+                    return (
+                      <Form className="booking-from">
+                        <div className="row clearfix">
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <TextInput
+                                type="text"
+                                id="name"
+                                name="name"
+                                className="form-control"
+                                defaultValue placeholder="Name" />
+                            </div>
+                          </div>
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <TextInput
+                                type="text"
+                                id="email"
+                                name="email"
+                                className="form-control"
+                                defaultValue placeholder="Email" />
+                            </div>
+                          </div>
+                          <div className="col-md-12">
+                            <div className="form-group">
+                              <TextInput
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                className="form-control"
+                                defaultValue placeholder="Phone" />
+                            </div>
+                          </div>
+                          <div className="col-sm-12">
+                            <div className="form-group">
+                              <TextArea
+                                type="text"
+                                id="message"
+                                name="message"
+                                className="form-control"
+                                defaultValue placeholder="Message"
+                                col={12}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="form-body">
+                          <div className="my-3 border-bottom" />
+                          <div className="text-align-center">
+                            <button
+                              type="submit"
+                              className="submit-btn"
+                            >
+                              Send Message
+                              <i className="fas fa-long-arrow-alt-right" />
+                            </button>
+                          </div>
+                        </div>
+                      </Form>
+                    );
+                  }}
+                </Formik>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="contact-content contact-content-address">
+                <p><strong>Head Office:</strong> 3995-399, Main Road Naya Bazar, Delhi-110006</p>
+
+                <p><strong>Manufacturing Facility Address:</strong> KH NO.572, VILLAGE - KOTLI P.O.SUCHAN, NH-09, SIRSA, Haryana</p>
+
+                <p><strong>Email:</strong> <a href="mailto:figurenaturalpvtltdhr@gmail.com">figurenaturalpvtltdhr@gmail.com</a></p>
+
+                <p><strong>Phone:</strong> <a href="tel:+919212431435">+91-9212431435</a></p>
+
+                <p><strong>Figure Natural Private Limited</strong> – Redefining healthy living, one grain at a time.</p>
+
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-      <section className="contact-info-section pt-150 rpt-100 pb-120 rpb-70">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-4 col-sm-6">
-              <div className="contact-info-item wow fadeInUp delay-0-2s">
-                <i className="fas fa-map-marker-alt" />
-                <h4>Location</h4>
-                <p>  <a>2nd Floor, Gulshan Grand Building, above Hansa Bahini Furnishing,
-                  Swaraj Nagar, Sarumotoria, Guwahati,
-                  Assam- 781006</a></p>
-                <hr />
-                <p>Call : <a href={`tel:+91-8011611002`}>+91-8011611002</a></p>
-              </div>
-
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <div className="contact-info-item wow fadeInUp delay-0-2s">
-                <i className="fas fa-map-marker-alt" />
-                <h4>Location</h4>
-                <p><a>{webpages && webpages.address}</a></p>
-                <hr />
-                <p>Call : <a href={`tel:{webpages && webpages.contact_no1}`}>{webpages && webpages.contact_no1}</a></p>
-                <p>Call : <a href={`tel:{webpages && webpages.contact_no2}`}>{webpages && webpages.contact_no2}</a></p>
-              </div>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <div className="contact-info-item wow fadeInUp delay-0-4s">
-                <i className="fa fa-envelope-open-text" />
-                <h4>Email Us</h4>
-                <p><a href={`mailto:{webpages && webpages.email_address}`}>{webpages && webpages.email_address}</a></p>
-              </div>
-            </div>
-
-            {/* <div className="col-lg-3 col-sm-6">
-              <div className="contact-info-item wow fadeInUp delay-0-6s">
-                <i className="fa fa-phone-alt" />
-                <h4>Hotline</h4>
-                <p>Call : <a href={`tel:{webpages && webpages.contact_no1}`}>{webpages && webpages.contact_no1}</a></p>
-                <p>Call : <a href={`tel:+91-8011611002`}>+91-8011611002</a></p>
-                <p>Call : <a href={`tel:{webpages && webpages.contact_no2}`}>{webpages && webpages.contact_no2}</a></p>
-              </div>
-            </div> */}
-
-          </div>
-        </div>
-      </section>
-      <div className="contact-page-map wow fadeInUp delay-0-2s">
-        <iframe src={webpages && webpages.map_integrate_links} style={{ border: 0, width: '100%' }} allowFullScreen loading="lazy" />
       </div>
-      <ContactForm />
+      <Features />
+      <section className="map ptb-60">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="address-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2514.9262154934286!2d77.21637887374757!3d28.528352888807174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce18ac60e4a61%3A0x81c366c7998e72a3!2sNexus%20Select%20CityWalk!5e1!3m2!1sen!2sin!4v1738590756265!5m2!1sen!2sin" style={{ border: 0, width: '100%', height: "70vh" }} allowFullScreen loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <Footer />
     </div>
   )
