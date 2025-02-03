@@ -2,10 +2,8 @@ import React from 'react'
 import { Formik, Form } from "formik";
 import { TextArea, TextInput, SelectBox } from "../../components/Form/Form";
 import * as Yup from "yup";
-import { useCreateContact } from "../../shared/hooks/UseContact";
 
 function ContactForm() {
-    const [data, addData] = useCreateContact();
 
     const addContact = ({ values }) => {
         var requestOptions = {

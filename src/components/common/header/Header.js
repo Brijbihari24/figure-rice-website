@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BookAppointmentButton from "../BookAppointmentButton";
 import { TiSocialYoutube } from "react-icons/ti";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebookSquare } from "react-icons/fa";

@@ -1,11 +1,9 @@
 import React from 'react'
 import { URI } from "../../domain/constant";
-import { useSelectAllTestimonial } from "../../shared/hooks/UseTestimonial";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import NextArrowComponent from "../slider/NextArrowComponent";
 import PreArrowComponent from "../slider/PreArrowComponent";
-import TestimonialCard from './TestimonialCard';
 
 function Testimonial() {
   const settings = {
@@ -42,8 +40,6 @@ function Testimonial() {
     // autoplaySpeed: 4000,
     // cssEase: "linear"
   };
-  const [data] = useSelectAllTestimonial();
-  const { all_testimonials, all_testimonials_loading } = data;
   return (
     <div>
 

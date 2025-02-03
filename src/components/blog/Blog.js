@@ -1,12 +1,10 @@
 import React from 'react'
 import BlogCard from './BlogCard'
 import { URI } from "../../domain/constant";
-import { useSelectAllBlog } from "../../shared/hooks/UseBlog";
 import { Link } from "react-router-dom";
 
 function Blog() {
-  const [data] = useSelectAllBlog();
-  const { all_blogs, all_blogs_loading } = data;
+
   return (
     <div>
       <section className="blogs ptb-60 bg-offwhite">
