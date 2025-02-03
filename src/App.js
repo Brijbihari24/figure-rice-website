@@ -15,9 +15,6 @@ import About from './containers/aboutus/About';
 
 import Shop from './containers/shop/Shop';
 import Contact from './containers/contact/Contact';
-import SingleProduct from './containers/product/SingleProduct';
-import Service from './containers/service/Service';
-import SingleService from './containers/service/SingleService';
 import Blog from "./containers/blog/Blog"
 import SingleBlog from './containers/blog/SingleBlog';
 import Privacy from './containers/policy/Privacy';
