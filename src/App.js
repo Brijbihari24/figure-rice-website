@@ -12,7 +12,6 @@ import store from './store/store';
 import Home from './containers/home/Home';
 import PageNotFound from './containers/notfound/PageNotFound';
 import About from './containers/aboutus/About';
-
 import Shop from './containers/shop/Shop';
 import Contact from './containers/contact/Contact';
 import Blog from "./containers/blog/Blog"
